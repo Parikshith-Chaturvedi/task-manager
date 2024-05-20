@@ -1,22 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { Dialog, DialogActions, DialogContent, DialogTitle, TextField, Button, MenuItem } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import React, { useState, useEffect } from "react";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  Button,
+  MenuItem,
+} from "@mui/material";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const TaskModal = ({ open, onClose, onSave, initialTask }) => {
-  const [task, setTask] = useState({ title: '', description: '', status: 'To Do', dueDate: null });
+  const [task, setTask] = useState({
+    title: "",
+    description: "",
+    status: "To Do",
+    dueDate: null,
+  });
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
     if (initialTask) {
       setTask(initialTask);
     } else {
-      setTask({ title: '', description: '', status: 'To Do', dueDate: null });
+      setTask({ title: "", description: "", status: "To Do", dueDate: null });
     }
   }, [initialTask]);
 
   useEffect(() => {
     if (!open) {
-      setTask({ title: '', description: '', status: 'To Do', dueDate: null });
+      setTask({ title: "", description: "", status: "To Do", dueDate: null });
       setErrors({});
     }
   }, [open]);
@@ -32,10 +45,10 @@ const TaskModal = ({ open, onClose, onSave, initialTask }) => {
 
   const validate = () => {
     let tempErrors = {};
-    tempErrors.title = task.title ? '' : 'Title is required';
-    tempErrors.description = task.description ? '' : 'Description is required';
+    tempErrors.title = task.title ? "" : "Title is required";
+    tempErrors.description = task.description ? "" : "Description is required";
     setErrors(tempErrors);
-    return Object.values(tempErrors).every((x) => x === '');
+    return Object.values(tempErrors).every((x) => x === "");
   };
 
   const handleSave = () => {
@@ -48,7 +61,7 @@ const TaskModal = ({ open, onClose, onSave, initialTask }) => {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>{initialTask ? 'Edit Task' : 'Add Task'}</DialogTitle>
+      <DialogTitle>{initialTask ? "Edit Task" : "Add Task"}</DialogTitle>
       <DialogContent>
         <TextField
           name="title"
@@ -79,7 +92,9 @@ const TaskModal = ({ open, onClose, onSave, initialTask }) => {
           label="Due Date"
           value={task.dueDate}
           onChange={handleDateChange}
-          renderInput={(params) => <TextField {...params} fullWidth margin="dense" size="small" />}
+          renderInput={(params) => (
+            <TextField {...params} fullWidth margin="dense" size="small" />
+          )}
         />
         <TextField
           select
@@ -97,8 +112,15 @@ const TaskModal = ({ open, onClose, onSave, initialTask }) => {
         </TextField>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} size="small">Cancel</Button>
-        <Button onClick={handleSave} color="primary" variant="contained" size="small">
+        <Button onClick={onClose} size="small">
+          Cancel
+        </Button>
+        <Button
+          onClick={handleSave}
+          color="primary"
+          variant="contained"
+          size="small"
+        >
           Save
         </Button>
       </DialogActions>

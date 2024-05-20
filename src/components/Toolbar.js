@@ -1,7 +1,7 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Avatar } from '@mui/material';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
+import React from "react";
+import { AppBar, Toolbar, Typography, Button, Avatar } from "@mui/material";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 const CustomToolbar = ({ user, onLogout }) => {
   const handleLogout = async () => {

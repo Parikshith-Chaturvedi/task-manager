@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Container, Grid, CircularProgress, Button, TextField } from "@mui/material";
+import {
+  Container,
+  Grid,
+  CircularProgress,
+  Button,
+  TextField,
+} from "@mui/material";
 import {
   collection,
   addDoc,
@@ -115,64 +121,64 @@ const TaskPage = ({ user, onLogout }) => {
 
   return (
     <>
-    <CustomToolbar user={user} onLogout={onLogout} />
-    <Container sx={{ my: 4 }}>
-      <Grid container spacing={2} alignItems="center" sx={{ my: 2 }}>
-        <Grid item xs={12} sm={6}>
-          <TaskFilter filter={filter} setFilter={setFilter} />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Grid
-            container
-            spacing={1}
-            justifyContent="flex-end"
-            alignItems="center"
-          >
-            <Grid item>
-              <TextField
-                label="Search"
-                variant="outlined"
-                size="small"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => setModalOpen(true)}
-                size="medium"
-              >
-                Add Task
-              </Button>
+      <CustomToolbar user={user} onLogout={onLogout} />
+      <Container sx={{ my: 4 }}>
+        <Grid container spacing={2} alignItems="center" sx={{ my: 2 }}>
+          <Grid item xs={12} sm={6}>
+            <TaskFilter filter={filter} setFilter={setFilter} />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Grid
+              container
+              spacing={1}
+              justifyContent="flex-end"
+              alignItems="center"
+            >
+              <Grid item>
+                <TextField
+                  label="Search"
+                  variant="outlined"
+                  size="small"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </Grid>
+              <Grid item>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => setModalOpen(true)}
+                  size="medium"
+                >
+                  Add Task
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      <TaskTable
-        tasks={paginatedTasks}
-        onEdit={handleEditTask}
-        onDelete={handleDeleteTask}
-        totalCount={filteredTasks.length}
-        pageSize={pageSize}
-        currentPage={currentPage}
-        onPageChange={handlePageChange}
-      />
-      <TaskModal
-        open={isModalOpen}
-        onClose={() => setModalOpen(false)}
-        onSave={handleSaveTask}
-        initialTask={editingTask}
-      />
-      <ConfirmDialog
-        open={confirmDialogOpen}
-        onClose={() => setConfirmDialogOpen(false)}
-        onConfirm={() => deleteTask(taskToDelete.id)}
-        title="Confirm Delete"
-        content={`Are you sure you want to delete the task "${taskToDelete?.title}"?`}
-      />
-    </Container>
+        <TaskTable
+          tasks={paginatedTasks}
+          onEdit={handleEditTask}
+          onDelete={handleDeleteTask}
+          totalCount={filteredTasks.length}
+          pageSize={pageSize}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
+        <TaskModal
+          open={isModalOpen}
+          onClose={() => setModalOpen(false)}
+          onSave={handleSaveTask}
+          initialTask={editingTask}
+        />
+        <ConfirmDialog
+          open={confirmDialogOpen}
+          onClose={() => setConfirmDialogOpen(false)}
+          onConfirm={() => deleteTask(taskToDelete.id)}
+          title="Confirm Delete"
+          content={`Are you sure you want to delete the task "${taskToDelete?.title}"?`}
+        />
+      </Container>
     </>
   );
 };

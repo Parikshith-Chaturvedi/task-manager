@@ -1,19 +1,18 @@
-// src/components/TaskForm.js
-import React, { useState } from 'react';
-import { TextField, Button, MenuItem } from '@mui/material';
+import React, { useState } from "react";
+import { TextField, Button, MenuItem } from "@mui/material";
 
 const TaskForm = ({ addTask }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [status, setStatus] = useState('To Do');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("To Do");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title) {
       addTask({ title, description, status });
-      setTitle('');
-      setDescription('');
-      setStatus('To Do');
+      setTitle("");
+      setDescription("");
+      setStatus("To Do");
     }
   };
 
@@ -45,7 +44,7 @@ const TaskForm = ({ addTask }) => {
         <MenuItem value="In Progress">In Progress</MenuItem>
         <MenuItem value="Done">Done</MenuItem>
       </TextField>
-      <Button type="submit" variant="text" size='medium' color="primary">
+      <Button type="submit" variant="text" size="medium" color="primary">
         Add Task
       </Button>
     </form>

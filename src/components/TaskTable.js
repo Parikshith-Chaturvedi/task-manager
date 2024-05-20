@@ -97,11 +97,13 @@ const TaskTable = ({
 
   return (
     <>
-      <Table sx={{
-      '& .MuiTableCell-sizeMedium': {
-        padding: '10px 16px',
-      },
-    }}>
+      <Table
+        sx={{
+          "& .MuiTableCell-sizeMedium": {
+            padding: "10px 16px",
+          },
+        }}
+      >
         <TableHead>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>

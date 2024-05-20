@@ -1,6 +1,5 @@
-// src/components/TaskFilter.js
-import React from 'react';
-import { Select, MenuItem } from '@mui/material';
+import React from "react";
+import { Select, MenuItem } from "@mui/material";
 
 const TaskFilter = ({ filter, setFilter }) => {
   return (
@@ -8,7 +7,6 @@ const TaskFilter = ({ filter, setFilter }) => {
       value={filter}
       onChange={(e) => setFilter(e.target.value)}
       size="small"
-    //   fullWidth
     >
       <MenuItem value="All">All</MenuItem>
       <MenuItem value="To Do">To Do</MenuItem>

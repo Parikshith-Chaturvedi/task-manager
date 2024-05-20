@@ -1,4 +1,3 @@
-// src/components/SignUp.js
 import React, { useState } from "react";
 import {
   TextField,

@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import { Container, CircularProgress } from "@mui/material";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase";
