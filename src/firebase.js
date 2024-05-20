@@ -5,11 +5,11 @@ import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "task-manager-42188.firebaseapp.com",
-  projectId: "task-manager-42188",
-  storageBucket: "task-manager-42188.appspot.com",
-  messagingSenderId: "1021444708657",
-  appId: "1:1021444708657:web:0610e18788d03195dab810"
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
