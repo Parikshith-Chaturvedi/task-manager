@@ -4,7 +4,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCPAE7njVpi83ia5Y5IXz7iyHrTBvUe0RY",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "task-manager-42188.firebaseapp.com",
   projectId: "task-manager-42188",
   storageBucket: "task-manager-42188.appspot.com",
