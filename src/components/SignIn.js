@@ -17,6 +17,10 @@ const SignIn = ({ onSignIn, switchToSignUp }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  // Demo ID
+  // test@test1.com
+  // 12345678
+
   const validateForm = () => {
     if (!email || !password) {
       setError("Email and password are required.");
@@ -75,11 +79,11 @@ const SignIn = ({ onSignIn, switchToSignUp }) => {
               Sign In
             </Button>
           </form>
-          <Grid container justifyContent="flex-end" sx={{ mt: 2 }}>
+          {/* <Grid container justifyContent="flex-end" sx={{ mt: 2 }}>
             <Link component="button" variant="body2" onClick={switchToSignUp}>
               Don't have an account? Sign Up
             </Link>
-          </Grid>
+          </Grid> */}
         </CardContent>
       </Card>
     </Container>
